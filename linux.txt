@@ -1,0 +1,162 @@
+from chapter 13
+
+you can run 
+$docker run ubuntu 
+if you dont have it locally it will pull it from the web
+$ docker ps/ docker ps -a(all) to show the current running image on docker
+
+for docker to run an interactive mode with the ubuntu we have locally we need to run 
+$docker run -it(interactive mode) uduntu-that we intall using wsl
+
+A SHELL
+ a shell is a program that takes our commands and passes them to the operating system to execute them
+root@number:/#
+root is the current logged in user
+number - which is the name of the machine
+:/ our current directory
+# or $ for level of authorization 
+$ echo ... - to print on terminal
+$ whoami - shows the current user
+
+linux is case sensitive and uses firward slash
+
+$ history- shows prev commands
+!number to run the particular command
+!2
+
+mnanging packages
+like npm yarm
+we use apt- advanced packeged tool
+also apt-get
+
+install a package
+
+$ apt install nano
+but sometimes not all packages are installed
+$apt list - to see all the availble packages
+$apt update - to iinstall current packages
+$ apt install the package again
+
+$nano to run the text editor
+
+to remove package 
+$apt remove package
+
+linux file structure
+everything is a file
+bin, boot, home, root, dev, lib(for library files), var, proc
+
+Navigating Linux File system
+pwd- print working directory
+ls -list the directory
+ls -l -in a diffenent format
+cd (abosulte path -always starts from the root dir as opposed relative path)
+cd ..
+cd ~ -to go to home directory
+
+manipulating files 
+
+$ mv test docker - it renames the file name
+$mkdir creates a new directory
+$touch creates a new file
+$rm to remove files
+$rm -r -to remove the file recursively(mostly used to remove directory 
+
+viewing and editing file
+$ more /file/path - to view files with one line at a time only downwards
+$ less -responsive
+$ head -n 5 file/path/ - this shows the first 5 lines
+$ tail 
+
+Redirection: ">"
+
+search
+$grep -i(case insentivity) word /file/path
+$find - it also shows hidden files 
+$find /file/path
+
+chapter 23
+
+Process
+$ps
+
+bash -(Bourne Again Shell)
+pts - determines the type of terminal we using
+/0 - number of terminal youre using
+Time- amount of CPU time the sysytem is using 
+PID - the process ID number 
+
+$ sleep 3 - to sleep the system for three second 
+$ kill 501(PID number) - to kill any process
+
+creating users
+$useradd -m name 
+the user is stored in the /etc directory
+to view using
+$ cat /etc/passwd
+
+to modify user 
+
+$usermod
+
+changing the shell of the user 
+
+$ usermod -s /bin/bash john
+
+paswwords are encrypted and stored somewhere else
+
+to view
+$ cat /etc/shadow
+
+login into a different user
+
+but logining first as the same user but on a different terminal
+we would need to use the ID 
+
+$ docker exec -it 7ed03c602cf4(process ID number) bash
+
+to exit the process we use 
+$ exit
+
+now to login into a differnt user 
+$ docker exec -it -u(to mean user) john  7ed03c602cf4 bash
+ now permissons have changed 
+it also now $ to indicate a changed permisson level
+
+to delete user 
+$ userdel john
+
+$ adduser - is alot more interactive
+
+manging groups
+we give evryone in a group the same permission level
+could be for managing a large organization
+
+$groupadd name
+
+to add a user to the group 
+$usermod
+in linux we have two types of groups the primary or the secondary group
+a user can belong to one primary and zero to multiple secondary group
+
+to find a user's group
+
+$cat /etc/passwd | grep john
+
+file Permission
+
+.sh files are known as shell script
+ you can use echo to write to a new file without having created the file
+you can also use it to write a command to the a file
+
+
+change mod command 
+$chmod u+x or u-x or g+x or g-w or og-x+w
+
+to run the command on the scrpt .sh
+$./filename - we jsut call the filename
+you can give other users the permission and they would be able to run it on their ends
+
+
+
+

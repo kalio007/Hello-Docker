@@ -1,0 +1,100 @@
+rewwatch from video 1-7
+
+install docker for your machine
+visit the link - https://docs.docker.com/desktop/install/windows-install/
+
+if you experience the wsl2 issue visit 
+-https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+to update your wsl version on your system or run -  wsl.exe --update on your terminal to update your wsl
+
+install the update for wsl
+run - $ docker version 
+this to check if your docker engine is running 
+also you server must be running else we go through the process again
+
+whats a dockerfile, how does docker implement it changes
+
+when we take an application we dockerate it 
+
+dockerfile is a plain text file that inlcudes information that docker uses to package up information into an image
+
+-image contians everything our application needs to run 
+ 1. the cut-down os
+ 2.a runtime environment
+ 3. application file 
+ 4. application variable
+
+docker container are built based on the docekrfile image
+conatianer is just a process- the apllication is ran insdie the contianer 
+
+$ docker run ...
+
+docker hub
+after creatimg the docker image we send it to a registry cslled the docker hub just like github stores codes
+then from the docker hub we can send it to any production machine 
+
+starting out
+ create a directory $mkdir hello-docker
+ create a file App.js
+
+insert picture
+
+in order to run this program on another machine we reuire to the following instruction
+-start with an OS
+-install Node
+-copy app files
+-run node app.js
+
+for a bigger program we would have lot sof stuff to run so docker comes in
+
+to run our small app with docker 
+1. create the docker file
+ Dockerfile - ensure the D is capital and everyother snamll letters, it has no file extenison
+2. install the docker extension if you have none on you
+
+3. we build the the base image on the docker andd add other images to it
+more like iherentance
+
+FROM Baseimage:tag(which linux dirtibution we want to use)alphine(image)
+COPY we need to copy the files in the directory to the app directory into the iamge
+WORKDIR to direct to the working directory
+CMD Command instruction to excute the command 
+
+next we run the docker build 
+in your terminal type 
+$ docker build -t (name )hello-docker .(where docker can find the docker file).
+
+
+Linux 
+
+
+Building docker images
+
+it contains all the information needed to start a contianer that best suit the apllication to be ran
+
+contianer 
+-provides and isolated environs
+-can be stopped & restarted
+-its just a porcess
+
+starting...
+
+we need a docker file which contians the information for building an image
+
+FROM -spcifitying the base image
+WORKDIR - working directory
+COPY
+ADD
+RUN- ecutring woriking command
+ENV -sending environment variable
+EXPOSE -which port its running on
+USER -
+CMD- 
+ENTRYPOINT-
+
+
+
+
+
+
+
